@@ -1,0 +1,10 @@
+Model 1: architecture: layer_1 = 3,layer_2 = 6,layer_3 = 12,density = 12, Batch size - 50, Optimizer - Adam, Training Time - 3.4899139404296875 seconds
+Model 2: architecture: layer_1 = 6,layer_2 = 12,layer_3 = 24,density = 24, Batch size - 50, Optimizer - Adam, Training Time - 4.224078893661499 seconds
+Model 3: architecture: layer_1 = 10,layer_2 = 20,layer_3 = 40,density = 40, Batch size - 50, Optimizer - Adam, Training Time - 4.196755886077881 seconds
+Model 4: architecture: layer_1 = 15,layer_2 = 30,layer_3 = 60,density = 60, Batch size - 50, Optimizer - Adam, Training Time - 5.595766067504883 seconds
+Model 5: architecture: layer_1 = 32,layer_2 = 64,layer_3 = 128,density = 128, Batch size - 50, Optimizer - Adam, Training Time - 9.490621566772461 seconds
+Model 6: architecture: layer_1 = 45,layer_2 = 90,layer_3 = 180,density = 180, Batch size - 50, Optimizer - Adam, Training Time - 16.342008113861084 seconds
+Model 7: architecture: layer_1 = 60,layer_2 = 120,layer_3 = 240,density = 240, Batch size - 50, Optimizer - Adam, Training Time - 25.615029335021973 seconds
+Model 8: architecture: layer_1 = 75,layer_2 = 150,layer_3 = 300,density = 300, Batch size - 50, Optimizer - Adam, Training Time - 39.03965210914612 seconds
+Model 9: architecture: layer_1 = 90,layer_2 = 180,layer_3 = 360,density = 360, Batch size - 50, Optimizer - Adam, Training Time - 47.88844561576843 seconds
+Model 10: architecture: layer_1 = 100,layer_2 = 200,layer_3 = 400,density = 400, Batch size - 50, Optimizer - Adam, Training Time - 57.22485136985779 seconds
