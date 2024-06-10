@@ -5,3 +5,7 @@ Epoch 100/100
 Model 1: architecture: layer_1 = 10,layer_2 = 20,layer_3 = 40,layer_4 = 40,layer_5 = 40,density = 40, Batch size - 50, Optimizer - AdamW, Training Time - 1303.5624577999115 seconds
 Epoch 100/100
 50/50 ━━━━━━━━━━━━━━━━━━━━ 14s 290ms/step - accuracy: 0.8595 - loss: 0.3371 - val_accuracy: 0.8200 - val_loss: 0.3839
+
+Model 2: architecture: layer_1 = 20,layer_2 = 40,layer_3 = 80,layer_4 = 80,layer_5 = 80,density = 80, Batch size - 50, Optimizer - AdamW, Training Time - 2029.2914171218872 seconds
+Epoch 100/100
+50/50 ━━━━━━━━━━━━━━━━━━━━ 27s 539ms/step - accuracy: 0.8404 - loss: 0.3492 - val_accuracy: 0.8000 - val_loss: 0.4270
