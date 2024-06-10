@@ -4,6 +4,10 @@ from tensorflow.keras import layers, models
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, Input
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+from tensorflow.keras.models import Sequential
+import time
 
 # Paths to dataset directories
 base_dir = '/home/koczka/Documents/ANN/processed_images'
@@ -62,75 +66,73 @@ test_dataset = tf.data.Dataset.from_generator(
     output_shapes=([None, 128, 128, 3], [None])
 )
 
-# # Define the CNN model
-# model = models.Sequential([
-#     Input(shape=(128, 128, 3)),
+
+# Parameters list
+layer_1 = [10,20,30]
+layer_2 = [20,40,60]
+layer_3 = [40,80,120]
+layer_4 = [40,80,120]
+layer_5 = [40,80,120]
+layer_6 = [40,80,120]
+density = [40,80,120]
+
+max_models = 2
+
+# Loop for trying different models
+for i in range(max_models):
+    # Build model
+    model = Sequential([
+        Input(shape=(128, 128, 3)),
+        Conv2D(layer_1[i], kernel_size=(3, 3), activation='relu', padding='same'),
+        MaxPooling2D(pool_size=(2, 2)),
+        Conv2D(layer_2[i], (3, 3), activation='relu', padding='same'),
+        MaxPooling2D(pool_size=(2, 2)),
+        Conv2D(layer_3[i], (3, 3), activation='relu', padding='same'),
+        MaxPooling2D(pool_size=(2, 2)),
+        Conv2D(layer_4[i], (3, 3), activation='relu', padding='same'),
+        MaxPooling2D(pool_size=(2, 2)),
+        Conv2D(layer_5[i], (3, 3), activation='relu', padding='same'),
+        MaxPooling2D(pool_size=(2, 2)),
+        Flatten(),
+        Dropout(0.5),
+        Dense(density[i], activation='relu'),
+        Dropout(0.5),
+        Dense(1, activation='sigmoid')
+    ])
     
-#     # First Convolutional Block
-#     Conv2D(6, (3, 3), activation='relu'),
-#     layers.BatchNormalization(),
-#     MaxPooling2D((2, 2)),
+    # Compile model
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     
-#     # Second Convolutional Block
-#     Conv2D(12, (3, 3), activation='relu'),
-#     layers.BatchNormalization(),
-#     MaxPooling2D((2, 2)),
+    # Record start time
+    start_time = time.time()
     
-#     # Third Convolutional Block
-#     Conv2D(32, (3, 3), activation='relu'),
-#     MaxPooling2D((2, 2)),
-#     layers.BatchNormalization(),
+    # Train model
+    history = model.fit(
+        train_dataset,
+        steps_per_epoch=train_generator.samples // train_generator.batch_size,
+        epochs=100,
+        validation_data=val_dataset,
+        validation_steps=val_generator.samples // val_generator.batch_size
+    )
     
-#     # Fully Connected Layers
-#     Flatten(),
-#     Dropout(0.5),
-#     Dense(32, activation='relu'),
-#     Dropout(0.5),
-#     Dense(1, activation='sigmoid')
-# ])
-
-# Define the CNN model
-model = models.Sequential([
-    Input(shape=(128, 128, 3)),
+    # Record end time
+    end_time = time.time()
     
-    # First Convolutional Block
-    Conv2D(6, (7, 7), activation='relu'),
-    MaxPooling2D((3, 3)),
-    Dense(6, activation='relu'),
-    Dense(12, activation='relu'),
-    Dense(32, activation='relu'),
-    layers.BatchNormalization(),
-    Flatten(),
-    Dropout(0.5),
-    Dense(1, activation='sigmoid')
-])
-
-
-# Compile the model
-model.compile(optimizer='adam',
-              loss='binary_crossentropy',
-              metrics=['accuracy'])
-
-# Train the model
-history = model.fit(
-    train_dataset,
-    steps_per_epoch=train_generator.samples // train_generator.batch_size,
-    epochs=100,
-    validation_data=val_dataset,
-    validation_steps=val_generator.samples // val_generator.batch_size
-)
-
-# Evaluate the model on test data
-test_loss, test_acc = model.evaluate(test_dataset, steps=test_generator.samples // test_generator.batch_size)
-print(f'Test accuracy: {test_acc}')
-
-# Plot learning and test loss curves
-plt.figure(figsize=(10, 5))
-plt.plot(history.history['loss'], label='Training Loss')
-plt.plot(history.history['val_loss'], label='Validation Loss')
-plt.title('Learning and Test Loss Curves')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.savefig('learning_test_loss_curves_2.png')
-plt.close()
+    # Calculate training time
+    training_time = end_time - start_time
+        
+    model.save(f'model_{i+1}.keras')
+        
+    # Plot learning and test loss curves
+    plt.figure(figsize=(10, 5))
+    plt.plot(history.history['loss'], label='Training Loss')
+    plt.plot(history.history['val_loss'], label='Validation Loss')
+    plt.title('Learning and Test Loss Curves')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.legend()
+    plt.savefig(f'learning_test_loss_curves_{i+1}.png')
+    plt.close()
+    
+    # Record model performance
+    with open('model_performance.txt', 'a') as f: f.write(f"Model {i+1}: architecture: layer_1 = {layer_1[i]},layer_2 = {layer_2[i]},layer_3 = {layer_3[i]},layer_4 = {layer_4[i]},layer_5 = {layer_5[i]},density = {density[i]}, Batch size - 50, Optimizer - AdamW, Training Time - {training_time} seconds\n")

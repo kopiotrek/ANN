@@ -1,0 +1,7 @@
+Model 120: architecture: layer_1 = 30,layer_2 = 60,layer_3 = 120,layer_4 = 120,layer_5 = 120,density = 120, Batch size - 50, Optimizer - AdamW, Training Time - 2493.433357000351 seconds
+Epoch 100/100
+50/50 ━━━━━━━━━━━━━━━━━━━━ 33s 656ms/step - accuracy: 0.8658 - loss: 0.3015 - val_accuracy: 0.7960 - val_loss: 0.5106
+
+Model 1: architecture: layer_1 = 10,layer_2 = 20,layer_3 = 40,layer_4 = 40,layer_5 = 40,density = 40, Batch size - 50, Optimizer - AdamW, Training Time - 1303.5624577999115 seconds
+Epoch 100/100
+50/50 ━━━━━━━━━━━━━━━━━━━━ 14s 290ms/step - accuracy: 0.8595 - loss: 0.3371 - val_accuracy: 0.8200 - val_loss: 0.3839
