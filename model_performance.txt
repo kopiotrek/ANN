@@ -1,68 +1,16 @@
 Model 1:
-Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 327.5702133178711 seconds
+Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 181.24148678779602 seconds
+Test results: Loss = 0.4369935393333435, Accuracy = 0.7960000038146973
 Confusion Matrix:
-[[ 93  32]
- [ 19 106]]
+[[92 33]
+ [26 99]]
 Classification Report:
-No_findings: precision = 0.8304, recall = 0.7440, f1-score = 0.7848, support = 125.0
-Pneumonia: precision = 0.7681, recall = 0.8480, f1-score = 0.8061, support = 125.0
+No_findings: precision = 0.7797, recall = 0.7360, f1-score = 0.7572, support = 125.0
+Pneumonia: precision = 0.7500, recall = 0.7920, f1-score = 0.7704, support = 125.0
 
 Model 2:
-Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 79.59653925895691 seconds
-Confusion Matrix:
-[[  0 125]
- [  0 125]]
-Classification Report:
-No_findings: precision = 0.0000, recall = 0.0000, f1-score = 0.0000, support = 125.0
-Pneumonia: precision = 0.5000, recall = 1.0000, f1-score = 0.6667, support = 125.0
-
-Model 1:
-Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 237.01430654525757 seconds
-Confusion Matrix:
-[[ 97  28]
- [ 25 100]]
-Classification Report:
-No_findings: precision = 0.7951, recall = 0.7760, f1-score = 0.7854, support = 125.0
-Pneumonia: precision = 0.7812, recall = 0.8000, f1-score = 0.7905, support = 125.0
-
-Model 2:
-Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 86.88572311401367 seconds
-Confusion Matrix:
-[[114  11]
- [110  15]]
-Classification Report:
-No_findings: precision = 0.5089, recall = 0.9120, f1-score = 0.6533, support = 125.0
-Pneumonia: precision = 0.5769, recall = 0.1200, f1-score = 0.1987, support = 125.0
-
-Model 1:
-Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 416.4336009025574 seconds
-Confusion Matrix:
-[[ 97  28]
- [ 25 100]]
-Classification Report:
-No_findings: precision = 0.7951, recall = 0.7760, f1-score = 0.7854, support = 125.0
-Pneumonia: precision = 0.7812, recall = 0.8000, f1-score = 0.7905, support = 125.0
-
-Model 2:
-Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 120.301677942276 seconds
-Confusion Matrix:
-[[  0 125]
- [  0 125]]
-Classification Report:
-No_findings: precision = 0.0000, recall = 0.0000, f1-score = 0.0000, support = 125.0
-Pneumonia: precision = 0.5000, recall = 1.0000, f1-score = 0.6667, support = 125.0
-
-Model 1:
-Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 147.1453342437744 seconds
-Confusion Matrix:
-[[ 99  26]
- [ 24 101]]
-Classification Report:
-No_findings: precision = 0.8049, recall = 0.7920, f1-score = 0.7984, support = 125.0
-Pneumonia: precision = 0.7953, recall = 0.8080, f1-score = 0.8016, support = 125.0
-
-Model 2:
-Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 89.89257836341858 seconds
+Architecture: layer_1 = 5, layer_2 = 10, layer_3 = 20, layer_4 = 20, layer_5 = 20, density = 20, Batch size = 10, Optimizer = Adam, Training Time = 50.84028100967407 seconds
+Test results: Loss = 0.6922195553779602, Accuracy = 0.5
 Confusion Matrix:
 [[125   0]
  [125   0]]
@@ -71,56 +19,18 @@ No_findings: precision = 0.5000, recall = 1.0000, f1-score = 0.6667, support = 1
 Pneumonia: precision = 0.0000, recall = 0.0000, f1-score = 0.0000, support = 125.0
 
 Model 1:
-Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 281.71923875808716 seconds
+Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 393.7673864364624 seconds
+Test results: Loss = 0.456560343503952, Accuracy = 0.800000011920929
 Confusion Matrix:
-[[ 92  33]
- [ 17 108]]
+[[93 32]
+ [30 95]]
 Classification Report:
-No_findings: precision = 0.8440, recall = 0.7360, f1-score = 0.7863, support = 125.0
-Pneumonia: precision = 0.7660, recall = 0.8640, f1-score = 0.8120, support = 125.0
+No_findings: precision = 0.7561, recall = 0.7440, f1-score = 0.7500, support = 125.0
+Pneumonia: precision = 0.7480, recall = 0.7600, f1-score = 0.7540, support = 125.0
 
 Model 2:
-Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 90.86889457702637 seconds
-Confusion Matrix:
-[[ 62  63]
- [ 23 102]]
-Classification Report:
-No_findings: precision = 0.7294, recall = 0.4960, f1-score = 0.5905, support = 125.0
-Pneumonia: precision = 0.6182, recall = 0.8160, f1-score = 0.7034, support = 125.0
-
-Model 1:
-Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 258.331444978714 seconds
-Test results: Loss = 0.4359695017337799, Accuracy = 0.7919999957084656
-Confusion Matrix:
-[[94 31]
- [31 94]]
-Classification Report:
-No_findings: precision = 0.7520, recall = 0.7520, f1-score = 0.7520, support = 125.0
-Pneumonia: precision = 0.7520, recall = 0.7520, f1-score = 0.7520, support = 125.0
-
-Model 2:
-Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 87.90121054649353 seconds
-Test results: Loss = 0.6917110085487366, Accuracy = 0.5
-Confusion Matrix:
-[[125   0]
- [125   0]]
-Classification Report:
-No_findings: precision = 0.5000, recall = 1.0000, f1-score = 0.6667, support = 125.0
-Pneumonia: precision = 0.0000, recall = 0.0000, f1-score = 0.0000, support = 125.0
-
-Model 1:
-Architecture: layer_1 = 10, layer_2 = 20, layer_3 = 40, layer_4 = 40, layer_5 = 40, density = 40, Batch size = 10, Optimizer = Adam, Training Time = 247.12456560134888 seconds
-Test results: Loss = 0.4290402829647064, Accuracy = 0.8119999766349792
-Confusion Matrix:
-[[95 30]
- [29 96]]
-Classification Report:
-No_findings: precision = 0.7661, recall = 0.7600, f1-score = 0.7631, support = 125.0
-Pneumonia: precision = 0.7619, recall = 0.7680, f1-score = 0.7649, support = 125.0
-
-Model 2:
-Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 83.72579717636108 seconds
-Test results: Loss = 0.6931985020637512, Accuracy = 0.5
+Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 165.25053119659424 seconds
+Test results: Loss = 0.6931415796279907, Accuracy = 0.5
 Confusion Matrix:
 [[  0 125]
  [  0 125]]
@@ -128,13 +38,23 @@ Classification Report:
 No_findings: precision = 0.0000, recall = 0.0000, f1-score = 0.0000, support = 125.0
 Pneumonia: precision = 0.5000, recall = 1.0000, f1-score = 0.6667, support = 125.0
 
-Model 3:
-Architecture: layer_1 = 30, layer_2 = 60, layer_3 = 120, layer_4 = 120, layer_5 = 120, density = 120, Batch size = 10, Optimizer = Adam, Training Time = 133.7035689353943 seconds
-Test results: Loss = 0.692575216293335, Accuracy = 0.6039999723434448
+Model 1:
+Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 735.519428730011 seconds
+Test results: Loss = 0.4390377700328827, Accuracy = 0.7960000038146973
 Confusion Matrix:
-[[94 31]
- [88 37]]
+[[93 32]
+ [27 98]]
 Classification Report:
-No_findings: precision = 0.5165, recall = 0.7520, f1-score = 0.6124, support = 125.0
-Pneumonia: precision = 0.5441, recall = 0.2960, f1-score = 0.3834, support = 125.0
+No_findings: precision = 0.7750, recall = 0.7440, f1-score = 0.7592, support = 125.0
+Pneumonia: precision = 0.7538, recall = 0.7840, f1-score = 0.7686, support = 125.0
+
+Model 1:
+Architecture: layer_1 = 20, layer_2 = 40, layer_3 = 80, layer_4 = 80, layer_5 = 80, density = 80, Batch size = 10, Optimizer = Adam, Training Time = 567.5448548793793 seconds
+Test results: Loss = 0.4340568482875824, Accuracy = 0.800000011920929
+Confusion Matrix:
+[[100  25]
+ [ 31  94]]
+Classification Report:
+No_findings: precision = 0.7634, recall = 0.8000, f1-score = 0.7812, support = 125.0
+Pneumonia: precision = 0.7899, recall = 0.7520, f1-score = 0.7705, support = 125.0
 

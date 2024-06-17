@@ -20,7 +20,7 @@ test_dir = os.path.join(base_dir, 'test')
 
 # Data preprocessing and augmentation
 train_datagen = ImageDataGenerator(
-    rescale=1./255,  # Normalization for training data
+    rescale=1./255, 
     shear_range=0.2,
     zoom_range=0.2,
     horizontal_flip=True
@@ -71,36 +71,41 @@ test_dataset = tf.data.Dataset.from_generator(
 )
 
 # Parameters list
-layer_1 = [10, 20, 30]
-layer_2 = [20, 40, 60]
-layer_3 = [40, 80, 120]
-layer_4 = [40, 80, 120]
-layer_5 = [40, 80, 120]
-density = [40, 80, 120]
+layer_1 = [20, 30]
+layer_2 = [40, 60]
+layer_3 = [80, 120]
+layer_4 = [80, 120]
+layer_5 = [80, 120]
+density = [80, 120]
 
-max_models = 3
+# layer_1 = [10, 20, 30]
+# layer_2 = [20, 40, 60]
+# layer_3 = [40, 80, 120]
+# layer_4 = [40, 80, 120]
+# layer_5 = [40, 80, 120]
+# density = [40, 80, 120]
+
+max_models = 1
 
 # Early stopping callback
-early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
+early_stopping = EarlyStopping(monitor='val_loss', patience=20, restore_best_weights=True)
 
-# Loop for trying different models
 for i in range(max_models):
-    # Build model
     model = Sequential([
         Input(shape=(128, 128, 3)),
-        Conv2D(layer_1[i], kernel_size=(3, 3), activation='relu', padding='same'),
+        Conv2D(10, kernel_size=(3, 3), activation='relu', padding='same'),
         MaxPooling2D(pool_size=(2, 2)),
-        Conv2D(layer_2[i], (3, 3), activation='relu', padding='same'),
+        Conv2D(20, (3, 3), activation='relu', padding='same'),
         MaxPooling2D(pool_size=(2, 2)),
-        Conv2D(layer_3[i], (3, 3), activation='relu', padding='same'),
+        Conv2D(40, (3, 3), activation='relu', padding='same'),
         MaxPooling2D(pool_size=(2, 2)),
-        Conv2D(layer_4[i], (3, 3), activation='relu', padding='same'),
+        Conv2D(40, (3, 3), activation='relu', padding='same'),
         MaxPooling2D(pool_size=(2, 2)),
-        Conv2D(layer_5[i], (3, 3), activation='relu', padding='same'),
+        Conv2D(40, (3, 3), activation='relu', padding='same'),
         MaxPooling2D(pool_size=(2, 2)),
         Flatten(),
         Dropout(0.5),
-        Dense(density[i], activation='relu'),
+        Dense(40, activation='relu'),
         Dropout(0.5),
         Dense(1, activation='sigmoid')
     ])
@@ -140,6 +145,17 @@ for i in range(max_models):
     plt.savefig(f'learning_test_loss_curves_{i+1}.png')
     plt.close()
 
+    # Plot learning and test accuracy curves
+    plt.figure(figsize=(10, 5))
+    plt.plot(history.history['accuracy'], label='Training Accuracy')
+    plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
+    plt.title('Learning and Test Accuracy Curves')
+    plt.xlabel('Epochs')
+    plt.ylabel('Accuracy')
+    plt.legend()
+    plt.savefig(f'learning_test_accuracy_curves_{i+1}.png')
+    plt.close()
+
     # Evaluate model on the test set using test_dataset
     test_steps_per_epoch = math.ceil(test_generator.samples / test_generator.batch_size)
     test_results = model.evaluate(test_dataset, steps=test_steps_per_epoch)
@@ -163,6 +179,8 @@ for i in range(max_models):
     plt.title(f'Confusion Matrix for Model {i+1}')
     plt.savefig(f'confusion_matrix_{i+1}.png')
     plt.close()
+    
+    
     
     # Compute classification report
     report = classification_report(true_classes, predicted_classes, target_names=class_labels, zero_division=0, output_dict=True)
