@@ -1,0 +1,1 @@
+To train the CNN run main.py file
